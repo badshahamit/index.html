@@ -1,126 +1,141 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diksha's Magical Memories</title>
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(to right,#fff0f5,#ffe6f0);
-  overflow-x:hidden;
-}
-#lock-screen{
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:#ff69b4; display:flex; justify-content:center; align-items:center; flex-direction:column;
-  color:white; z-index:9999;
-}
-#lock-screen input{padding:12px;border:none;border-radius:10px;margin-top:15px;width:250px;font-size:18px;}
-#lock-screen button{margin-top:15px;padding:10px 30px;border:none;background:white;border-radius:10px;font-size:18px;color:#ff69b4;cursor:pointer;}
-#error{margin-top:15px;color:yellow;font-weight:bold;display:none;}
-#main-content{display:none;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Bhai</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe6f0; /* light pink background */
+        }
 
-header{background-color:#ff69b4;text-align:center;padding:35px;color:white;font-size:2.5em;}
-.section-title{text-align:center;margin:35px;font-size:2em;color:#ff1493;}
-.profile{text-align:center;margin:40px 0;}
-.profile img{width:200px;height:200px;border-radius:50%;border:5px solid #ff1493;animation:zoom 4s infinite;}
-.profile h2{margin-top:20px;font-size:2em;color:#ff1493;}
-.profile p{font-size:1.1em;color:#555;}
+        header {
+            background-color: #ff66b3; /* pink header */
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-.gallery,.videos,.products{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.photo-card,.product-card,.video-card{background:#fff0f5;padding:20px;border-radius:15px;text-align:center;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform 0.3s ease;}
-.photo-card:hover,.product-card:hover,.video-card:hover{transform:scale(1.05);}
-.photo-card img,.product-card img,.video-card iframe{width:100%;border-radius:10px;animation:zoom 4s infinite;}
-.photo-card p,.product-card p,.video-card p{font-size:1em;color:#333;margin-top:10px;}
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
 
-.video-section{margin:40px 0;text-align:center;}
-footer{background-color:#ff69b4;color:white;padding:25px;margin-top:60px;text-align:center;font-size:1.2em;}
+        header p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
 
-.heart{position:absolute;width:20px;height:20px;background:#ff1493;transform:rotate(45deg);animation:fall 6s linear infinite;}
-.heart::before,.heart::after{content:'';position:absolute;width:20px;height:20px;background:#ff1493;border-radius:50%;}
-.heart::before{top:-10px;left:0;}
-.heart::after{left:10px;top:0;}
-@keyframes fall{0%{transform:translateY(-50px) rotate(45deg);}100%{transform:translateY(800px) rotate(45deg);}}
-@keyframes zoom{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
-</style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 3px solid #ff99cc;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .about {
+            background-color: #ffd6e6;
+            padding: 30px 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .social {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social a {
+            text-decoration: none;
+            color: white;
+            background-color: #ff66b3;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .social a:hover {
+            background-color: #ff3399;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff66b3;
+            color: white;
+        }
+
+        /* Responsive */
+        @media(max-width:600px){
+            .gallery img{
+                width: 90%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div id="lock-screen">
-  <h2>Diksha's Private Website 🔐</h2>
-  <p>Enter Password</p>
-  <input type="password" id="pwd" placeholder="Password डालें">
-  <button onclick="unlock()">Open</button>
-  <div id="error">❌ गलत Password</div>
-</div>
+    <header>
+        <h1>Amit Bhai</h1>
+        <p>हमारी यादों का खज़ाना</p>
+    </header>
 
-<div id="main-content">
+    <section class="gallery">
+        <img src="<a href="https://ibb.co/dsjyjyC2"><img src="https://i.ibb.co/wZB1B1GW/IMG-20251120-160817-299.webp" alt="IMG-20251120-160817-299" border="0"></a>" alt="green park">
+        <img src="<a href="https://ibb.co/JNTXg78"><img src="https://i.ibb.co/4cLB3TC/IMG-20251120-084653-869.webp" alt="IMG-20251120-084653-869" border="0"></a>" alt="purnea court">
+        <img src="<a href="https://ibb.co/237LfWgN"><img src="https://i.ibb.co/YB7KqPpZ/Snapchat-467832678.jpg" alt="Snapchat-467832678" border="0"></a>" alt="MAA">
+        <img src="<a href="https://ibb.co/VcVTRj07"><img src="https://i.ibb.co/21qdxn0D/Snapchat-534296542.jpg" alt="Snapchat-534296542" border="0"></a>" alt="cousins">
+        <img src="<a href="https://ibb.co/d4DVNBQt"><img src="https://i.ibb.co/TMt7QcH1/Screenshot-20251123-020935-Instagram.png" alt="Screenshot-20251123-020935-Instagram" border="0"></a>" alt="sister">
+        <img src="<a href="https://ibb.co/G44PbQtP"><img src="https://i.ibb.co/9kkYCHVY/20250702-145305.jpg" alt="20250702-145305" border="0"></a>" alt="PAPA">
+        <img src="<a href="https://ibb.co/MDyX2J0S"><img src="https://i.ibb.co/ynm3fxjP/Screenshot-20251017-170044-Photos.png" alt="Screenshot-20251017-170044-Photos" border="0"></a><br /><a target='_blank' href='https://hi.imgbb.com/'>वेबसाइट में इमेज एम्बेड कैसे करें</a><br /alt</alt="best pic"t  ">
+        <img src="<a href="https://ibb.co/84PgMPM1"><img src="https://i.ibb.co/BKT2LTL0/Snapchat-1078892426.jpg" alt="Snapchat-1078892426" border="0"></a>" alt="handsome bhai">
+        <img src="<a href="https://ibb.co/yB7mm3qN"><img src="https://i.ibb.co/dJxsshDf/20250215-100111.jpg" alt="20250215-100111" border="0"></a>" alt="best frind">
+        <img src="<a href="https://ibb.co/B2mKJ2Vn"><img src="https://i.ibb.co/qYzF8YMJ/20250401-162324.jpg" alt="20250401-162324" border="0"></a>" alt="bhai">
+    </section>
 
-<header>Diksha 💖</header>
+    <section class="about">
+        <h2>About</h2>
+        <p>यह हमारी यादों की गैलरी है। यहाँ हमने अपने खास पलों को संजोया है। हमारी जिंदगी की छोटी-छोटी खुशियाँ और यादें यहाँ हमेशा के लिए सुरक्षित हैं।</p>
+    </section>
 
-<div class="profile">
-  <img src="https://i.ibb.co/Zztf618w/Screenshot-20251123-081402-Instagram.png" alt="Diksha">
-  <h2>मेरी प्यारी बहन Diksha</h2>
-  <p>हमारी खुशियों और यादों का सबसे सुंदर chapter ✨</p>
-</div>
+    <div class="social">
+        <a href="https://www.instagram.com/amitkumar_444_?igsh=cjNpcHY1YzNocGJh" target="_blank">Instagram पर देखें</a>
+    </div>
 
-<h2 class="section-title">🎬 Special Video</h2>
-<div class="videos">
-  <div class="video-card">
-    <iframe src="https://www.instagram.com/reel/DGSFshuosAi0yPoqBxRhPvmK_VFosoAxlIPSOQ0/embed" frameborder="0" allowfullscreen></iframe>
-    <p>Instagram Reel 💖</p>
-  </div>
-</div>
-
-<h2 class="section-title">📸 Magical Photos</h2>
-<div class="gallery">
-  <div class="photo-card"><img src="https://i.ibb.co/Zztf618w/Screenshot-20251123-081402-Instagram.png" alt="Moment 1 💖"><p>Moment 1 💖</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/VpcFjb2Y/Screenshot-20251123-081024-Instagram.png" alt="Moment 2 🌸"><p>Moment 2 🌸</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/zhxfHXYv/Screenshot-20251123-081104-Instagram.png" alt="Moment 3 💫"><p>Moment 3 💫</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/zH2CGFCc/Screenshot-20251123-081241-Instagram.png" alt="Moment 4 🌟"><p>Moment 4 🌟</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/N6bKdtCm/Screenshot-20251123-021003-Instagram.png" alt="Moment 5 ❤️"><p>Moment 5 ❤️</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/mVRMYRbF/Screenshot-20251123-021037-Instagram.png" alt="Moment 6 🌸"><p>Moment 6 🌸</p></div>
-  <div class="photo-card"><img src="https://i.ibb.co/TMt7QcH1/Screenshot-20251123-020935-Instagram.png" alt="Moment 7 💫"><p>Moment 7 💫</p></div>
-</div>
-
-<h2 class="section-title">🍫 Chocolates & 💄 Makeup</h2>
-<div class="products">
-  <div class="product-card"><img src="https://i.ibb.co/vZfRtDQ/chocolate.png"><p>Chocolate Treat 🍫</p></div>
-  <div class="product-card"><img src="https://i.ibb.co/vhPzYbN/makeup.png"><p>Makeup Products 💄</p></div>
-</div>
-
-<footer>
-Made with ❤️ by your loving Brother — Diksha, you are my sunshine 🌙
-</footer>
-
-<audio autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
-
-</div>
-
-<script>
-function unlock(){
-  let x=document.getElementById("pwd").value;
-  if(x==="soni moshi"){
-    document.getElementById("lock-screen").style.display="none";
-    document.getElementById("main-content").style.display="block";
-  } else {
-    document.getElementById("error").style.display="block";
-    setTimeout(()=>{document.getElementById("error").style.display="none";},2000);
-  }
-}
-
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.style.left=Math.random()*window.innerWidth+"px";
-  heart.style.animationDuration=(3+Math.random()*4)+"s";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},500);
-</script>
+    <footer>
+        &copy; 2025 Amit Bhai. सभी अधिकार सुरक्षित।
+    </footer>
 
 </body>
 </html>
